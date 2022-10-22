@@ -8,11 +8,12 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list
-
+    # SORT THIS OUT
     if @bookmark.save
       redirect_to list_path(@list)
     else
       raise
+      # ERROR VLAIDATION
     end
   end
 
