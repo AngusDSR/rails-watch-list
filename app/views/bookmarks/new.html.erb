@@ -1,9 +1,15 @@
-<h1>Add movie to <strong><%= @list.name %></strong></h1>
-<hr>
-<div class="container w-50">
-  <%= simple_form_for [@list, @bookmark]  do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.submit %>
-<% end %>
+<div class="d-flex align-items-center px-3">
+  <h1 class="col-2-md mt-2 ms-2">Add movie to <strong><%= @list.name %></strong></h1>
+  <p class="flex-grow-1"></p>
+  <%= link_to "Back", root_path, class: "col-2-md btn btn-primary"  %>
+</div>
+<hr class="mt-0">
+<div class="wrapper bg-body">
+  <div class="container w-25 pt-2 pb-4 bg-light border rounded shadow fw-bold fs-4">
+    <%= simple_form_for [@list, @bookmark]  do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.submit "Add to list ➕", class: "btn btn-success" %>
+  <% end %>
+  </div>
 </div>
