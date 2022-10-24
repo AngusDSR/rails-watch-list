@@ -1,20 +1,23 @@
 <div class="d-flex align-items-center px-3">
   <h1 class="col-2-md mt-2 ms-2"><b><%= @list.name.capitalize %>:</b> <%= @list.bookmarks.size %> movies</h1>
   <p class="flex-grow-1"></p>
-  <%= link_to "Add movie to list", new_list_bookmark_path(@list), class: "col-2-md btn btn-success"  %>
+  <%= link_to "Back", root_path, class: "button-rounded bg-primary" %>
 </div>
-<hr class="mt-0">
 <div class="container">
-  <% @list.bookmarks.all.each do |bookmark| %>
-    <div class="card w-50 mb-3 p-2 pb-0 shadow-sm">
-      <h3 class=""><%= bookmark.movie.title %> <sup class="fs-6">(<%= bookmark.movie.rating %>)</sup></h3>
-      <p><%= bookmark.comment %></p>
-    </div>
-  <% end %>
+  <div class="row pt-4">
+    <% @list.bookmarks.all.each do |bookmark| %>
+      <div class="col w-50 mb-3 p-2 pb-0 bg-black opacity-75 shadow-sm">
+        <h4 class=""><%= bookmark.movie.title %> <sup class="fs-6">(<%= bookmark.movie.rating %>)</sup></h4>
+        <p><%= bookmark.comment %></p>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+  <%= link_to "Add movie to list", new_list_bookmark_path(@list), class: "col-2 me-3 button-rounded bg-info" %>
   <%= link_to "Remove list",
     list_path(@list),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-    class: "btn btn-danger fw-bold"
+    class: "col-2 button-rounded bg-danger fw-bold"
   %>
-  <%= link_to "Back", root_path, class: "btn btn-primary" %>
+  </div>
 </div>

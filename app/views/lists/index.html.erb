@@ -1,18 +1,19 @@
-<div class="d-flex align-items-center px-3">
-  <h1 class="col-2-md mt-2 ms-2"><b>My lists</b></h1>
+<div class="d-flex align-items-center px-3 mb-4">
+  <h1 class="col-2-md mt-2 ms-2"><b>Your movie lists</b></h1>
   <p class="flex-grow-1"></p>
-  <%= link_to "Create a new list", new_list_path, class: "btn btn-success" %>
+  <%= link_to "Create a new list", new_list_path, class: "button-rounded bg-info" %>
+
 </div>
-<hr class="mt-0">
+
+<%= image_tag "popcorn.jpg", alt: "Popcorn", class: "hero" %>
+
+
 <div class="container">
-<div class="container">
-  <div class="d-flex justify-content-end me-4">
-  </div>
-  <div class="container">
-    <% @lists.each do |list| %>
+  <% @lists.each do |list| %>
+    <%= link_to list_path(list), class: "text-decoration-none text-dark" do %>
       <div class="card w-50 mb-3 p-2 pb-0 shadow-sm">
-        <h3><%= link_to list.name, list_path(list), class: "text-decoration-none text-dark" %></h3>
-      </div>
+      <h3><%= list.name %></h3>
     <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
