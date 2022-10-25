@@ -14,7 +14,7 @@
           <p class="ms-2"><span class="fs-4">"</span><%= bookmark.comment %><span class="fs-4">"</span></p>
           <div class="flex-grow-1"></div>
           <%= link_to "Delete",
-            bookmark_path(@list),
+            bookmark_path(bookmark),
             data: {turbo_method: :delete, turbo_confirm: "Remove movie from list?"},
             class: "button-rounded border border-danger fw-semibold text-danger"
           %>
@@ -29,8 +29,5 @@
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
       class: "col-2 button-rounded bg-danger fw-bold"
     %>
-
-    <%# <small class="text-right flex-shrink-0"><%= link_to "delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %></small> %>
-
   </div>
 </div>
