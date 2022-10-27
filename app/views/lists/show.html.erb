@@ -1,5 +1,5 @@
 <div class="d-flex align-items-center px-3">
-  <h1 class="col-2-md mt-2 ms-2"><b><%= @list.name.capitalize %>:</b> <%= @list.bookmarks.size %> movies</h1>
+  <h1 class="col-2-md mt-2 ms-2"><b><%= @list.name.capitalize %>:</b> <span class="text-info"><%= @list.bookmarks.size %> movies</span></h1>
   <p class="flex-grow-1"></p>
   <%= link_to "Back", root_path, class: "button-rounded bg-primary" %>
 </div>
@@ -23,7 +23,7 @@
     <% end %>
   </div>
   <div class="row">
-    <%= link_to "Add movie to list", new_list_bookmark_path(@list), class: "col-2 me-3 button-rounded bg-info" %>
+    <%= link_to "Add movie to list", new_list_bookmark_path(@list), class: "col-2 me-3 button-rounded bg-info fw-bold" %>
     <%= link_to "Remove list",
       list_path(@list),
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
